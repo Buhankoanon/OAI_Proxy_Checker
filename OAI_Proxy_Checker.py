@@ -85,9 +85,11 @@ def main():
     websites = [
         "https://whocars123-oai-proxy.hf.space/",
         "https://whocars123-oai-proxy2.hf.space/",
+        "https://whocars123-public-test.hf.space/",
         "https://moxxie-knolastname-530560494330.hf.space/",
         "https://maceter636-8874416364.hf.space/",
         "https://anonjegger340-coom-tunnel.hf.space/",
+        "https://anonjegger340-logged-cooms.hf.space/",
         "https://idosal-oai-proxy.hf.space/",
         #Add more if needed
     ]
@@ -103,7 +105,7 @@ def main():
             if url not in previous_statuses:
                 previous_statuses[url] = gpt4_status
             else:
-                if previous_statuses[url] == 0 and gpt4_status != 0 and isinstance(gpt4_status, int):
+                if previous_statuses[url] != gpt4_status and isinstance(gpt4_status, int) and gpt4_status > 0:
                     sound_notification()
 
             previous_statuses[url] = gpt4_status
