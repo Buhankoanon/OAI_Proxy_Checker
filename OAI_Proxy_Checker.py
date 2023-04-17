@@ -39,13 +39,16 @@ def check_gpt4_status(url):
         gpt4_status = None
         quota_left = None
         if 'keyInfo' in data:
-            gpt4_status = data['keyInfo']['gpt4']
-            if 'quotaLeft' in data['keyInfo']:
-                quota_left_data = data['keyInfo']['quotaLeft']
-                if 'gpt4' in quota_left_data:
-                    quota_left = quota_left_data['gpt4']
-                elif 'all' in quota_left_data:
-                    quota_left = quota_left_data['all']
+            if 'gpt4' in data['keyInfo']:
+                gpt4_status = data['keyInfo']['gpt4']
+                if 'quotaLeft' in data['keyInfo']:
+                    quota_left_data = data['keyInfo']['quotaLeft']
+                    if 'gpt4' in quota_left_data:
+                        quota_left = quota_left_data['gpt4']
+                    elif 'all' in quota_left_data:
+                        quota_left = quota_left_data['all']
+            else:
+                return "No GPT-4 key info detected"
         elif 'keys' in data:
             gpt4_status = data['keys']['gpt4']
         elif 'proxies' in data:
@@ -88,6 +91,7 @@ def main():
         "https://whocars123-public-test.hf.space/",
         "https://moxxie-knolastname-530560494330.hf.space/",
         "https://maceter636-8874416364.hf.space/",
+        "https://maceter636-7282349227.hf.space/",
         "https://anonjegger340-coom-tunnel.hf.space/",
         "https://anonjegger340-logged-cooms.hf.space/",
         "https://idosal-oai-proxy.hf.space/",
